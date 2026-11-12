@@ -1,0 +1,10 @@
+<h1>Your StudyFit interview</h1>
+
+<% @chat.messages.each do |message| %>
+  <p><strong><%= message.role == "user" ? "You" : "StudyFit" %>:</strong> <%= message.content %></p>
+<% end %>
+
+<%= form_with model: [@chat, @message] do |f| %>
+  <%= f.text_area :content, placeholder: "Type your answer..." %>
+  <%= f.submit "Send" %>
+<% end %>
