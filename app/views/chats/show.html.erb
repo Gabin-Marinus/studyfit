@@ -1,5 +1,7 @@
 <h1>Your StudyFit interview</h1>
-
+<% if alert %>
+  <p style="color: red;"><%= alert %></p>
+<% end %>
 <% @chat.messages.each do |message| %>
   <p><strong><%= message.role == "user" ? "You" : "StudyFit" %>:</strong> <%= message.content %></p>
 <% end %>
