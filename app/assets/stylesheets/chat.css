@@ -1,0 +1,567 @@
+/* ==========================================================================
+   StudyFit — interview
+   One question card on stage; every answer filed into the drawer.
+   ========================================================================== */
+
+.sf-chat {
+  min-height: 100svh;
+  /* reading-lamp pool from above and a soft fall-off at the edges */
+  background:
+    radial-gradient(70rem 40rem at 50% -12rem, rgba(201, 162, 99, 0.09), transparent 70%),
+    radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(3, 12, 8, 0.45) 100%),
+    var(--sf-drawer);
+  background-attachment: fixed;
+}
+
+/* Top bar ----------------------------------------------------------------- */
+
+.sf-chat__bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: calc(0.85rem + env(safe-area-inset-top, 0px)) var(--sf-gutter) 0.85rem;
+  background: rgba(16, 38, 30, 0.96);
+  border-bottom: 1px solid var(--sf-drawer-line);
+}
+
+.sf-chat__title {
+  color: var(--sf-on-drawer-soft);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+/* Desk layout ------------------------------------------------------------- */
+
+.sf-desk {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 19rem;
+  align-items: start;
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vh, 3.5rem) var(--sf-gutter) 3rem;
+}
+
+.sf-stage {
+  min-width: 0;
+  max-width: 46rem;
+  width: 100%;
+  justify-self: center;
+}
+
+/* The question card ------------------------------------------------------- */
+
+.sf-qcard {
+  --sf-head: 3rem;
+  --sf-line: 2rem;
+  --pad: clamp(1.15rem, 3vw, 2.25rem);
+  padding: 0 var(--pad);
+}
+
+.sf-qcard.is-short {
+  --sf-line: 2.75rem;
+}
+
+.sf-qcard.is-medium {
+  --sf-line: 2.25rem;
+}
+
+.sf-qcard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: var(--sf-head);
+}
+
+.sf-qcard__next {
+  color: var(--sf-rule-red);
+}
+
+.sf-qcard__body {
+  padding: 1.5px 0 calc(var(--sf-line) - 2px);
+  font-size: 1.0625rem;
+  line-height: var(--sf-line);
+  transition: filter 220ms ease, opacity 220ms ease;
+}
+
+.sf-qcard__body p + p {
+  margin-top: var(--sf-line);
+}
+
+.sf-qcard.is-short .sf-qcard__body {
+  font-family: var(--sf-font-display);
+  font-weight: 650;
+  font-stretch: 102%;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}
+
+.sf-qcard.is-medium .sf-qcard__body {
+  font-family: var(--sf-font-display);
+  font-weight: 550;
+  font-stretch: 100%;
+  font-size: clamp(1.2rem, 1.8vw, 1.375rem);
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+/* while the reply is being written the question steps back */
+.sf-qcard__body.is-pending {
+  filter: blur(1.5px);
+  opacity: 0.4;
+}
+
+.sf-qcard__writing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: calc(var(--sf-line) * -1);
+  height: var(--sf-line);
+  color: var(--sf-ink-soft);
+  font-size: 0.9375rem;
+}
+
+.sf-thinking {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.sf-thinking i {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--sf-rule-red);
+  animation: sf-dot 1.1s ease-in-out infinite;
+}
+.sf-thinking i:nth-child(2) { animation-delay: 150ms; }
+.sf-thinking i:nth-child(3) { animation-delay: 300ms; }
+
+@keyframes sf-dot {
+  0%, 100% { opacity: 0.25; translate: 0 0; }
+  40%      { opacity: 1;    translate: 0 -3px; }
+}
+
+/* The answer field: the foot of the card, kept in reach on long replies */
+.sf-qcard__answer {
+  --pitch: 2rem;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  margin: 0 calc(var(--pad) * -1);
+  padding: 0 var(--pad) calc(0.9rem + env(safe-area-inset-bottom, 0px));
+  background: var(--sf-card);
+  border-top: 1.5px solid var(--sf-rule-red);
+  border-radius: 0 0 var(--sf-radius-card) var(--sf-radius-card);
+}
+
+.sf-qcard__label {
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  cursor: text;
+}
+
+.sf-qcard__input {
+  display: block;
+  width: 100%;
+  min-height: calc(var(--pitch) * 2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 calc(var(--pitch) - 1px), var(--sf-rule-blue) calc(var(--pitch) - 1px) var(--pitch));
+  background-attachment: local;
+  color: var(--sf-ink);
+  font-family: var(--sf-font-body);
+  font-size: 1.0625rem;
+  line-height: var(--pitch);
+  resize: none;
+  caret-color: var(--sf-rule-red);
+  color-scheme: light;
+}
+
+.sf-qcard__input::placeholder {
+  color: #66746d;
+}
+
+.sf-qcard__input:focus {
+  outline: none;
+}
+
+.sf-qcard__input:read-only {
+  color: var(--sf-ink-soft);
+}
+
+.sf-qcard:focus-within {
+  box-shadow: 0 0 0 2px var(--sf-brass), var(--sf-shadow-card);
+}
+
+.sf-qcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+.sf-qcard__hint {
+  color: var(--sf-ink-soft);
+  font-size: 0.8125rem;
+}
+
+.sf-qcard__send {
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+}
+
+/* Error, inside the card */
+.sf-alert {
+  margin-bottom: 1.25rem;
+  padding: 0.9rem 1.1rem;
+  border: 1.5px solid var(--sf-rule-red);
+  border-radius: 4px;
+  background: #fbeeec;
+  color: var(--sf-ink);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.sf-alert__title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--sf-red-deep);
+}
+
+.sf-alert__hint {
+  margin-top: 0.4rem;
+  color: var(--sf-ink-soft);
+}
+
+/* Whole conversation, tucked away ---------------------------------------- */
+
+.sf-transcript {
+  margin-top: 1.75rem;
+}
+
+.sf-transcript summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--sf-on-drawer-soft);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  list-style: none;
+  border-radius: 3px;
+  transition: color 160ms ease;
+}
+
+.sf-transcript summary::-webkit-details-marker {
+  display: none;
+}
+
+.sf-transcript summary::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.75px solid currentColor;
+  border-bottom: 1.75px solid currentColor;
+  rotate: -45deg;
+  transition: rotate 200ms var(--sf-ease);
+}
+
+.sf-transcript[open] summary::before {
+  rotate: 45deg;
+}
+
+.sf-transcript summary:hover {
+  color: var(--sf-on-drawer);
+}
+
+.sf-transcript__list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--sf-drawer-line);
+}
+
+.sf-transcript__item {
+  max-width: 40rem;
+  color: var(--sf-on-drawer-soft);
+  font-size: 1rem;
+}
+
+.sf-transcript__item .sf-typed {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--sf-brass);
+}
+
+.sf-transcript__item--you {
+  color: var(--sf-on-drawer);
+}
+
+.sf-transcript__item--you .sf-typed {
+  color: var(--sf-on-drawer-soft);
+}
+
+.sf-transcript__item p + p {
+  margin-top: 0.75em;
+}
+
+/* The drawer of filed answers --------------------------------------------- */
+
+.sf-files {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100svh - 7rem);
+}
+
+.sf-files__list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.25rem 0.85rem 1.75rem;
+  background: var(--sf-drawer-deep);
+  border-radius: 8px 8px 0 0;
+  box-shadow: inset 0 10px 18px -10px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(238, 242, 236, 0.04);
+  scrollbar-width: thin;
+}
+
+.sf-files__empty {
+  padding: 1rem 0.5rem 2rem;
+  color: var(--sf-on-drawer-soft);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
+/* each answer, a small catalogue card; later cards stand in front */
+.sf-filecard {
+  --sf-head: 2.1rem;
+  --sf-line: 1.6rem;
+  position: relative;
+  padding: 0.5rem 0.9rem 0.45rem;
+  box-shadow: 0 -8px 14px -10px rgba(0, 0, 0, 0.55), 0 1px 1px rgba(5, 16, 12, 0.35);
+  transition: translate 260ms var(--sf-ease);
+}
+
+.sf-filecard + .sf-filecard {
+  margin-top: -0.35rem;
+}
+
+.sf-filecard .sf-typed {
+  display: block;
+  height: calc(var(--sf-head) - 0.5rem);
+  font-size: 0.6875rem;
+}
+
+.sf-filecard__entry {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-top: 1.5px;
+  font-family: var(--sf-font-typed);
+  font-size: 0.9375rem;
+  line-height: var(--sf-line);
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sf-filecard:hover {
+    translate: 0 -0.3rem;
+  }
+}
+
+/* phones: the card that flies into the drawer front */
+.sf-filecard--ghost {
+  position: fixed;
+  z-index: 50;
+  margin: 0;
+  pointer-events: none;
+  transform-origin: top left;
+}
+
+/* Drawer front: card tops for progress, a brass holder for the count */
+.sf-files__front {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0 1rem 1.1rem;
+  border: 0;
+  border-radius: 4px 4px 10px 10px;
+  background: var(--sf-drawer-raised);
+  box-shadow: inset 0 1px 0 rgba(238, 242, 236, 0.08), 0 18px 30px -18px rgba(0, 0, 0, 0.8);
+  color: var(--sf-on-drawer);
+  font: inherit;
+  cursor: default;
+}
+
+/* ten card tops standing up out of the drawer */
+.sf-files__slots {
+  display: flex;
+  gap: 4px;
+  margin-top: -0.7rem;
+}
+
+.sf-files__slots i {
+  width: 1.05rem;
+  height: 1.45rem;
+  border-radius: 2px 2px 0 0;
+  border: 1px solid var(--sf-drawer-line);
+  border-bottom: 0;
+  background: var(--sf-drawer-deep);
+}
+
+.sf-files__slots i.is-filled {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--sf-rule-red), var(--sf-rule-red)) 0 0.45rem / 100% 1px no-repeat,
+    var(--sf-card);
+  box-shadow: 0 -2px 6px -3px rgba(0, 0, 0, 0.6);
+}
+
+.sf-files__holder {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid var(--sf-brass);
+  border-radius: 2px;
+  background: var(--sf-drawer-deep);
+  color: var(--sf-brass);
+  font-family: var(--sf-font-typed);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.sf-files__holder strong {
+  font-size: 1.125rem;
+  color: var(--sf-on-drawer);
+}
+
+.sf-files__caption {
+  margin-left: 0.5rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sf-files__chevron {
+  display: none;
+}
+
+/* Phones and tablets ------------------------------------------------------ */
+
+@media (max-width: 1023.98px) {
+  .sf-desk {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 0;
+  }
+
+  /* the drawer becomes a bar under the header; tap to open */
+  .sf-files {
+    order: -1;
+    top: calc(3.7rem + env(safe-area-inset-top, 0px));
+    z-index: 15;
+    max-height: none;
+    margin: 0 calc(var(--sf-gutter) * -1) 1.5rem;
+    align-self: stretch;
+  }
+
+  .sf-files__front {
+    order: -1;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: start;
+    gap: 1rem;
+    padding: 0.7rem var(--sf-gutter);
+    border-radius: 0;
+    border-bottom: 1px solid var(--sf-drawer-line);
+    cursor: pointer;
+  }
+
+  .sf-files__slots {
+    margin-top: 0;
+    gap: 3px;
+  }
+
+  .sf-files__slots i {
+    width: 0.7rem;
+    height: 1.05rem;
+  }
+
+  .sf-files__slots i.is-filled {
+    background-position: 0 0.3rem, 0 0;
+  }
+
+  .sf-files__chevron {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--sf-on-drawer-soft);
+    transition: rotate 220ms var(--sf-ease);
+  }
+
+  .sf-files.is-open .sf-files__chevron {
+    rotate: 180deg;
+  }
+
+  .sf-files__list {
+    display: none;
+    max-height: min(55svh, 26rem);
+    border-radius: 0;
+    padding-inline: var(--sf-gutter);
+    box-shadow: inset 0 10px 18px -10px rgba(0, 0, 0, 0.7), 0 20px 30px -20px rgba(0, 0, 0, 0.9);
+  }
+
+  .sf-files.is-open .sf-files__list {
+    display: block;
+    animation: sf-drawer-open 260ms var(--sf-ease) both;
+  }
+
+  @keyframes sf-drawer-open {
+    from { clip-path: inset(0 0 100% 0); }
+    to   { clip-path: inset(0 0 0 0); }
+  }
+}
+
+@media (max-width: 560px) {
+  .sf-chat__title,
+  .sf-files__caption {
+    display: none;
+  }
+  .sf-qcard.is-short {
+    --sf-line: 2.25rem;
+  }
+  .sf-qcard.is-short .sf-qcard__body {
+    font-size: 1.375rem;
+  }
+  .sf-qcard.is-medium {
+    --sf-line: 2rem;
+  }
+  .sf-qcard.is-medium .sf-qcard__body {
+    font-size: 1.125rem;
+  }
+}
+
+@media (hover: none), (max-width: 560px) {
+  .sf-qcard__hint {
+    visibility: hidden;
+  }
+}

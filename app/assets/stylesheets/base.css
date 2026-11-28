@@ -1,0 +1,305 @@
+/* ==========================================================================
+   StudyFit — base: fonts, tokens, browser surfaces, shared pieces
+   World: the library card catalogue
+   ========================================================================== */
+
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("archivo-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url("archivo-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400;
+  font-display: swap;
+  src: url("atkinson-hyperlegible-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400;
+  font-display: swap;
+  src: url("atkinson-hyperlegible-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 700;
+  font-display: swap;
+  src: url("atkinson-hyperlegible-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 700;
+  font-display: swap;
+  src: url("atkinson-hyperlegible-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 400;
+  font-display: swap;
+  src: url("courier-prime-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Courier Prime";
+  font-weight: 700;
+  font-display: swap;
+  src: url("courier-prime-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* Drawer (ground) */
+  --sf-drawer-deep: #0b1d16;
+  --sf-drawer: #10261e;
+  --sf-drawer-raised: #173329;
+  --sf-drawer-line: #2a4a3d;
+  --sf-on-drawer: #eef2ec;
+  --sf-on-drawer-soft: #a9bdb2;
+
+  /* Card stock */
+  --sf-card: #f7f6f1;
+  --sf-card-shade: #ebe9e1;
+  --sf-card-edge: #dcd9cd;
+  --sf-ink: #1a2621;
+  --sf-ink-soft: #4e5d56;
+  --sf-rule-red: #c23b30;
+  --sf-rule-blue: #c3d3e4;
+
+  /* Brass + action */
+  --sf-brass: #c9a263;
+  --sf-brass-soft: #8f7446;
+  --sf-red: #c4332b;
+  --sf-red-deep: #a62821;
+
+  --sf-font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --sf-font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --sf-font-typed: "Courier Prime", "Courier New", Courier, monospace;
+
+  --sf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --sf-ease-damped: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --sf-radius-card: 6px;
+  --sf-shadow-card: 0 1px 1px rgba(5, 16, 12, 0.35), 0 14px 28px -14px rgba(3, 12, 8, 0.65);
+  --sf-gutter: clamp(1rem, 4vw, 3.5rem);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--sf-drawer-line) var(--sf-drawer-deep);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--sf-drawer);
+  color: var(--sf-on-drawer);
+  font-family: var(--sf-font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, p, ul, ol, figure {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--sf-brass);
+  color: var(--sf-drawer-deep);
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 1px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sf-brass);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.sf-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Turbo's progress bar, in brass */
+.turbo-progress-bar {
+  height: 3px;
+  background: var(--sf-brass);
+}
+
+/* Wordmark: a brass label plate, like the holder on a drawer front ------ */
+
+.sf-plate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+  border: 1.5px solid var(--sf-brass);
+  border-radius: 3px;
+  color: var(--sf-on-drawer);
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-stretch: 115%;
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* the two rivets on a label holder */
+.sf-plate::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sf-brass);
+  box-shadow: 0 0 0 0 transparent;
+}
+
+a.sf-plate {
+  transition: background-color 180ms var(--sf-ease), color 180ms var(--sf-ease);
+}
+
+@media (hover: hover) {
+  a.sf-plate:hover {
+    background: var(--sf-brass);
+    color: var(--sf-drawer-deep);
+  }
+  a.sf-plate:hover::before {
+    background: var(--sf-drawer-deep);
+  }
+}
+
+/* Primary action ---------------------------------------------------------- */
+
+.sf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 1.6rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--sf-red);
+  color: #fff;
+  font-family: var(--sf-font-body);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 10px 22px -12px rgba(196, 51, 43, 0.9);
+  transition:
+    background-color 160ms ease,
+    transform 160ms var(--sf-ease),
+    box-shadow 200ms var(--sf-ease);
+}
+
+.sf-btn svg {
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 220ms var(--sf-ease);
+}
+
+@media (hover: hover) {
+  .sf-btn:hover {
+    background: var(--sf-red-deep);
+  }
+  .sf-btn:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.sf-btn:active {
+  transform: scale(0.97);
+}
+
+.sf-btn:disabled,
+.sf-btn[aria-disabled="true"] {
+  cursor: progress;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* Typed label used on every card ----------------------------------------- */
+
+.sf-typed {
+  font-family: var(--sf-font-typed);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sf-ink-soft);
+}
+
+/* Index-card stock: red header rule, pale blue ruling ------------------- */
+
+.sf-card {
+  --sf-head: 3.25rem;   /* height above the red rule */
+  --sf-line: 2rem;      /* ruling pitch */
+  position: relative;
+  background-color: var(--sf-card);
+  background-image:
+    linear-gradient(var(--sf-rule-red), var(--sf-rule-red)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--sf-line) - 1px), var(--sf-rule-blue) calc(var(--sf-line) - 1px) var(--sf-line));
+  background-size: 100% 1.5px, 100% 100%;
+  background-position: 0 var(--sf-head), 0 calc(var(--sf-head) + 1.5px);
+  background-repeat: no-repeat, no-repeat;
+  background-origin: border-box;
+  color: var(--sf-ink);
+  border-radius: var(--sf-radius-card);
+  box-shadow: var(--sf-shadow-card);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}

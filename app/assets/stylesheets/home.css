@@ -1,0 +1,578 @@
+/* ==========================================================================
+   StudyFit — home
+   ========================================================================== */
+
+.sf-home {
+  overflow-x: clip;
+}
+
+.sf-inline-form {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Nav --------------------------------------------------------------------- */
+
+.sf-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: calc(1.5rem + env(safe-area-inset-top, 0px)) var(--sf-gutter) 0;
+}
+
+.sf-nav__link {
+  color: var(--sf-on-drawer-soft);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: color 160ms ease;
+}
+
+.sf-nav__link:hover {
+  color: var(--sf-on-drawer);
+  text-decoration: underline;
+}
+
+/* Hero -------------------------------------------------------------------- */
+
+.sf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 82rem;
+  min-height: min(calc(100svh - 5rem), 56rem);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vh, 4rem) var(--sf-gutter) clamp(3rem, 7vh, 5rem);
+}
+
+.sf-hero__title {
+  font-family: var(--sf-font-display);
+  font-weight: 800;
+  font-stretch: 104%;
+  font-size: clamp(2.4rem, 4.3vw, 3.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  max-width: 17ch;
+}
+
+.sf-hero__title span {
+  display: block;
+  text-wrap: balance;
+}
+
+.sf-hero__lead {
+  margin-top: 1.5rem;
+  max-width: 36ch;
+  color: var(--sf-on-drawer-soft);
+  font-size: clamp(1.125rem, 1.4vw, 1.3rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.sf-hero__action {
+  margin-top: 2.25rem;
+}
+
+.sf-hero__note {
+  margin-top: 0.9rem;
+  color: var(--sf-on-drawer-soft);
+  font-size: 0.9375rem;
+}
+
+/* The drawer: answer cards filed behind the plan card -------------------- */
+
+.sf-drawer {
+  --step: 3.6rem;
+  position: relative;
+  max-width: 36rem;
+  width: 100%;
+  justify-self: end;
+}
+
+.sf-drawer__stack {
+  position: relative;
+  padding-top: calc(var(--step) * 5);
+}
+
+.sf-file {
+  --sf-head: 3.45rem;
+  /* rear cards sit higher and read slightly narrower and darker */
+  --depth: calc(4 - var(--i));
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--i) * var(--step));
+  height: 9rem;
+  padding: 0.65rem 1.25rem;
+  scale: calc(1 - var(--depth) * 0.028) 1;
+  transform-origin: 50% 100%;
+  filter: brightness(calc(1 - var(--depth) * 0.035));
+  translate: 0 0;
+  transition:
+    translate 420ms var(--sf-ease-damped),
+    filter 300ms ease,
+    box-shadow 300ms ease;
+  animation: sf-file-in 620ms var(--sf-ease-damped) backwards;
+  animation-delay: calc(60ms + var(--i) * 60ms);
+}
+
+.sf-file .sf-typed {
+  font-size: 0.75rem;
+}
+
+.sf-file__entry {
+  font-family: var(--sf-font-typed);
+  font-size: 1.0625rem;
+  line-height: 1.35;
+  color: var(--sf-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sf-plancard {
+  --sf-head: 4.1rem;
+  --sf-line: 2.6rem;
+  position: relative;
+  z-index: 2;
+  padding: 1.1rem 1.5rem 1.6rem;
+  box-shadow: 0 1px 1px rgba(5, 16, 12, 0.4), 0 -10px 24px -14px rgba(3, 12, 8, 0.55), 0 30px 50px -24px rgba(3, 12, 8, 0.8);
+  animation: sf-plan-in 700ms var(--sf-ease-damped) backwards;
+  animation-delay: 260ms;
+}
+
+.sf-plancard__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  height: calc(var(--sf-head) - 1.1rem);
+}
+
+.sf-plancard__title {
+  font-family: var(--sf-font-display);
+  font-weight: 800;
+  font-stretch: 104%;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.sf-plancard__lines li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--sf-line);
+  font-size: 1.0625rem;
+  /* half the ruling pitch: one line centres in a row, two lines fill it exactly */
+  line-height: calc(var(--sf-line) / 2);
+}
+
+.sf-tickets {
+  display: inline-flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+/* origin ticket: a tiny stub naming the source card */
+.sf-ticket {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.35rem;
+  height: 1.6rem;
+  padding: 0 0.4rem;
+  border: 1.5px solid var(--sf-rule-red);
+  border-radius: 3px;
+  color: var(--sf-rule-red);
+  font-family: var(--sf-font-typed);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  cursor: default;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.sf-ticket:hover,
+.sf-ticket:focus-visible {
+  background: var(--sf-rule-red);
+  color: var(--sf-card);
+}
+
+.sf-plancard__foot {
+  display: flex;
+  align-items: center;
+  min-height: var(--sf-line);
+  line-height: calc(var(--sf-line) / 2);
+  color: var(--sf-ink-soft);
+  font-size: 0.875rem;
+}
+
+/* hovering or focusing a ticket lifts the card it cites */
+.sf-drawer:has(.sf-ticket:is(:hover, :focus-visible)) .sf-file {
+  filter: brightness(0.78);
+}
+
+.sf-drawer:has([data-src="01"]:is(:hover, :focus-visible)) [data-card="01"],
+.sf-drawer:has([data-src="03"]:is(:hover, :focus-visible)) [data-card="03"],
+.sf-drawer:has([data-src="04"]:is(:hover, :focus-visible)) [data-card="04"],
+.sf-drawer:has([data-src="05"]:is(:hover, :focus-visible)) [data-card="05"],
+.sf-drawer:has([data-src="06"]:is(:hover, :focus-visible)) [data-card="06"] {
+  translate: 0 -1.1rem;
+  filter: brightness(1.02);
+  box-shadow: 0 0 0 1.5px var(--sf-rule-red), var(--sf-shadow-card);
+}
+
+/* drawer front with its brass label holder (labels the example honestly) */
+.sf-drawer__front {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  margin: -1rem -0.75rem 0;
+  padding: 1rem 0 1.1rem;
+  background: var(--sf-drawer-raised);
+  border-radius: 4px 4px 10px 10px;
+  box-shadow:
+    inset 0 1px 0 rgba(238, 242, 236, 0.08),
+    0 18px 30px -18px rgba(0, 0, 0, 0.8);
+}
+
+.sf-drawer__holder {
+  padding: 0.35rem 1rem;
+  border: 1.5px solid var(--sf-brass);
+  border-radius: 2px;
+  background: var(--sf-drawer-deep);
+  color: var(--sf-brass);
+  font-family: var(--sf-font-typed);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@keyframes sf-file-in {
+  from {
+    translate: 0 -2.25rem;
+  }
+}
+
+@keyframes sf-plan-in {
+  from {
+    translate: 0 2.5rem;
+  }
+}
+
+@keyframes sf-rise {
+  from {
+    translate: 0 0.75rem;
+  }
+}
+
+.sf-hero__copy > * {
+  animation: sf-rise 700ms var(--sf-ease) backwards;
+}
+.sf-hero__lead   { animation-delay: 80ms; }
+.sf-hero__action { animation-delay: 160ms; }
+
+/* Section shared ---------------------------------------------------------- */
+
+.sf-section-title {
+  font-family: var(--sf-font-display);
+  font-weight: 800;
+  font-stretch: 104%;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+/* How it works: guide cards with staggered tabs --------------------------- */
+
+.sf-how {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(4rem, 10vw, 8rem) var(--sf-gutter) clamp(3rem, 7vw, 6rem);
+}
+
+.sf-how__intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem 3rem;
+  margin-bottom: 4.5rem;
+}
+
+.sf-how__lead {
+  max-width: 34ch;
+  color: var(--sf-on-drawer-soft);
+  font-size: 1.125rem;
+}
+
+.sf-guides {
+  display: grid;
+  gap: 4.25rem;
+}
+
+.sf-guide {
+  position: relative;
+  background: var(--sf-card);
+  color: var(--sf-ink);
+  border-radius: 0 var(--sf-radius-card) var(--sf-radius-card) var(--sf-radius-card);
+  box-shadow: var(--sf-shadow-card);
+}
+
+.sf-guide:nth-child(n + 2) {
+  border-top-left-radius: var(--sf-radius-card);
+}
+
+/* the tab rises out of the card's top edge, one third further along each time */
+.sf-guide__tab {
+  position: absolute;
+  bottom: 100%;
+  left: calc(var(--tab) * (100% - 11rem) / 2);
+  width: 11rem;
+  padding: 0.55rem 1rem 0.35rem;
+  background: var(--sf-card);
+  border-radius: 8px 8px 0 0;
+  color: var(--sf-ink);
+  font-family: var(--sf-font-display);
+  font-weight: 800;
+  font-stretch: 115%;
+  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sf-guide__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+.sf-guide__text h3 {
+  font-family: var(--sf-font-display);
+  font-weight: 800;
+  font-stretch: 104%;
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+  text-wrap: balance;
+}
+
+.sf-guide__text p {
+  max-width: 46ch;
+  color: var(--sf-ink-soft);
+  text-wrap: pretty;
+}
+
+/* the ruled half of the guide card, where the example is typed */
+.sf-guide__sample {
+  --pitch: 2rem;
+  padding: 0.25rem 0 0;
+  background-image:
+    linear-gradient(var(--sf-rule-red), var(--sf-rule-red)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--pitch) - 1px), var(--sf-rule-blue) calc(var(--pitch) - 1px) var(--pitch));
+  background-size: 100% 1.5px, 100% 100%;
+  background-position: 0 2.25rem, 0 calc(2.25rem + 1.5px);
+  background-repeat: no-repeat;
+}
+
+.sf-guide__sample .sf-typed {
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.sf-guide__q,
+.sf-guide__a {
+  font-family: var(--sf-font-typed);
+  font-size: 1.0625rem;
+  line-height: var(--pitch);
+}
+
+.sf-guide__a {
+  color: var(--sf-rule-red);
+  font-weight: 700;
+}
+
+/* Principles ---------------------------------------------------------------- */
+
+.sf-principles {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) var(--sf-gutter);
+}
+
+.sf-principles__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem clamp(1.5rem, 4vw, 4rem);
+  margin-top: 3rem;
+}
+
+.sf-principles__list li {
+  padding-top: 1.25rem;
+  border-top: 1.5px solid var(--sf-brass-soft);
+}
+
+.sf-principles__list h3 {
+  font-family: var(--sf-font-display);
+  font-weight: 700;
+  font-stretch: 104%;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+
+.sf-principles__list p {
+  color: var(--sf-on-drawer-soft);
+  max-width: 40ch;
+}
+
+/* Close ------------------------------------------------------------------- */
+
+.sf-close {
+  padding: clamp(3rem, 8vw, 7rem) var(--sf-gutter) clamp(4rem, 9vw, 8rem);
+}
+
+.sf-close__card {
+  --sf-head: 3.5rem;
+  --sf-line: 2.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: var(--sf-head) clamp(1.5rem, 5vw, 3.5rem) 3.25rem;
+  text-align: center;
+}
+
+.sf-close__card::after {
+  /* the punched rod hole every catalogue card carries */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-left: -0.45rem;
+  border-radius: 50%;
+  background: var(--sf-drawer);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.sf-close__title {
+  margin: 1.6rem auto 2rem;
+  max-width: 16ch;
+  font-family: var(--sf-font-display);
+  font-weight: 800;
+  font-stretch: 104%;
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.sf-close__note {
+  margin-top: 1rem;
+  color: var(--sf-ink-soft);
+  font-size: 0.9375rem;
+}
+
+/* Footer -------------------------------------------------------------------- */
+
+.sf-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: 2rem var(--sf-gutter) calc(2rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--sf-drawer-line);
+  color: var(--sf-on-drawer-soft);
+  font-size: 0.9375rem;
+}
+
+.sf-plate--quiet {
+  border-color: var(--sf-drawer-line);
+  color: var(--sf-on-drawer-soft);
+}
+.sf-plate--quiet::before {
+  background: var(--sf-drawer-line);
+}
+
+/* Responsive ---------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .sf-hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 3rem;
+  }
+  .sf-drawer {
+    justify-self: start;
+  }
+  .sf-guide__body {
+    grid-template-columns: 1fr;
+  }
+  .sf-principles__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .sf-hero {
+    padding-top: 1.75rem;
+    gap: 2rem;
+  }
+  .sf-hero__title {
+    font-size: 2.4rem;
+  }
+  .sf-hero__lead {
+    margin-top: 1rem;
+    font-size: 1.0625rem;
+  }
+  .sf-hero__action {
+    margin-top: 1.5rem;
+  }
+  .sf-drawer {
+    --step: 2.75rem;
+  }
+  .sf-file {
+    padding-top: 0.45rem;
+  }
+  .sf-file .sf-typed {
+    font-size: 0.6875rem;
+  }
+  /* on phones the filed cards show only their typed label */
+  .sf-file__entry {
+    visibility: hidden;
+  }
+  .sf-file {
+    padding-inline: 1rem;
+  }
+  .sf-file__entry {
+    font-size: 1rem;
+  }
+  .sf-plancard {
+    padding-inline: 1rem;
+  }
+  .sf-plancard__lines li {
+    font-size: 1rem;
+  }
+  .sf-guide__tab {
+    width: 6.5rem;
+    left: calc(var(--tab) * (100% - 6.5rem) / 2);
+    padding-inline: 0.5rem;
+  }
+  .sf-how__intro {
+    margin-bottom: 4rem;
+  }
+}

@@ -1,3 +1,168 @@
-<h1>Stop studying like everyone else. Study like you.</h1>
-<p>StudyFit builds a study plan made for you, and it gets better every time you use it.</p>
-<%= button_to "Start my interview", chats_path %>
+<% arrow = capture do %><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><% end %>
+
+<div class="sf-home">
+  <header class="sf-nav">
+    <%= link_to "StudyFit", root_path, class: "sf-plate", aria: { label: "StudyFit home" } %>
+    <a class="sf-nav__link" href="#how">How it works</a>
+  </header>
+
+  <main>
+    <%# Hero ---------------------------------------------------------------- %>
+    <section class="sf-hero" aria-labelledby="hero-title">
+      <div class="sf-hero__copy">
+        <h1 id="hero-title" class="sf-hero__title"><span>Stop studying like everyone else.</span> <span>Study like you.</span></h1>
+        <p class="sf-hero__lead">StudyFit interviews you about how you actually study, then builds a plan where every choice points back to something you&nbsp;said.</p>
+        <div class="sf-hero__action">
+          <%= button_to chats_path, class: "sf-btn", form_class: "sf-inline-form" do %>Start my interview<%= arrow %><% end %>
+          <p class="sf-hero__note">10 questions · about 5 minutes · skip any you like</p>
+        </div>
+      </div>
+
+      <figure class="sf-drawer" aria-labelledby="drawer-caption">
+        <div class="sf-drawer__stack">
+          <article class="sf-card sf-file" data-card="01" style="--i: 0">
+            <span class="sf-typed">Card 01 · Studying for</span>
+            <p class="sf-file__entry">Organic chemistry final, 14&nbsp;January</p>
+          </article>
+          <article class="sf-card sf-file" data-card="03" style="--i: 1">
+            <span class="sf-typed">Card 03 · Sharpest</span>
+            <p class="sf-file__entry">Mornings, before 11</p>
+          </article>
+          <article class="sf-card sf-file" data-card="04" style="--i: 2">
+            <span class="sf-typed">Card 04 · Focus span</span>
+            <p class="sf-file__entry">About 25 minutes, then I&nbsp;drift</p>
+          </article>
+          <article class="sf-card sf-file" data-card="05" style="--i: 3">
+            <span class="sf-typed">Card 05 · Pulls me away</span>
+            <p class="sf-file__entry">My phone, every time</p>
+          </article>
+          <article class="sf-card sf-file" data-card="06" style="--i: 4">
+            <span class="sf-typed">Card 06 · How I revise</span>
+            <p class="sf-file__entry">Rereading my notes</p>
+          </article>
+
+          <article class="sf-card sf-plancard">
+            <header class="sf-plancard__head">
+              <h2 class="sf-plancard__title">Your plan</h2>
+              <span class="sf-typed">Organic chemistry</span>
+            </header>
+            <ul class="sf-plancard__lines">
+              <li>
+                <span>Two 25-min sessions, 9 to 10am</span>
+                <span class="sf-tickets">
+                  <span class="sf-ticket" tabindex="0" data-src="03">03<span class="sf-visually-hidden">, sharpest time</span></span>
+                  <span class="sf-ticket" tabindex="0" data-src="04">04<span class="sf-visually-hidden">, focus span</span></span>
+                </span>
+              </li>
+              <li>
+                <span>Phone in another room while you work</span>
+                <span class="sf-tickets"><span class="sf-ticket" tabindex="0" data-src="05">05<span class="sf-visually-hidden">, distractions</span></span></span>
+              </li>
+              <li>
+                <span>Swap rereading for practice questions</span>
+                <span class="sf-tickets"><span class="sf-ticket" tabindex="0" data-src="06">06<span class="sf-visually-hidden">, how you revise</span></span></span>
+              </li>
+              <li>
+                <span>Spaced review from three weeks out</span>
+                <span class="sf-tickets"><span class="sf-ticket" tabindex="0" data-src="01">01<span class="sf-visually-hidden">, exam date</span></span></span>
+              </li>
+            </ul>
+            <p class="sf-plancard__foot">Each number is the answer card it came from.</p>
+          </article>
+        </div>
+
+        <figcaption id="drawer-caption" class="sf-drawer__front">
+          <span class="sf-drawer__holder">Example plan</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <%# How it works: guide cards with staggered tabs ------------------------ %>
+    <section id="how" class="sf-how" aria-labelledby="how-title">
+      <div class="sf-how__intro">
+        <h2 id="how-title" class="sf-section-title">How it works</h2>
+        <p class="sf-how__lead">One conversation, three stages. You can stop, skip or change an answer at any&nbsp;point.</p>
+      </div>
+
+      <ol class="sf-guides">
+        <li class="sf-guide" style="--tab: 0">
+          <span class="sf-guide__tab">Ask</span>
+          <div class="sf-guide__body">
+            <div class="sf-guide__text">
+              <h3>Ten questions, one at a time</h3>
+              <p>What you're studying for, how many hours you really have, when you're sharpest, what pulls you away. Skip any you'd rather not answer.</p>
+            </div>
+            <div class="sf-guide__sample" aria-label="Example question">
+              <p class="sf-typed">Question 4</p>
+              <p class="sf-guide__q">How long can you focus before your mind starts drifting?</p>
+              <p class="sf-guide__a">“Twenty minutes on a good day.”</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="sf-guide" style="--tab: 1">
+          <span class="sf-guide__tab">Check</span>
+          <div class="sf-guide__body">
+            <div class="sf-guide__text">
+              <h3>It reads back what it heard</h3>
+              <p>Before planning anything, StudyFit sums you up in a few lines and asks if it got you right. Correct it and it adjusts.</p>
+            </div>
+            <div class="sf-guide__sample" aria-label="Example summary">
+              <p class="sf-typed">Summary</p>
+              <p class="sf-guide__q">You focus best in short morning bursts, your phone is the main distraction, and starting is harder than keeping going.</p>
+              <p class="sf-guide__a">Did I get that right?</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="sf-guide" style="--tab: 2">
+          <span class="sf-guide__tab">Plan</span>
+          <div class="sf-guide__body">
+            <div class="sf-guide__text">
+              <h3>A plan that shows its working</h3>
+              <p>Session length, your best times, three techniques that suit you, what to stop doing and a sample week. Each choice says which answer it's based on. After that, keep the chat going for any study question.</p>
+            </div>
+            <div class="sf-guide__sample" aria-label="Example plan line">
+              <p class="sf-typed">Technique</p>
+              <p class="sf-guide__q">Start each session with a two-minute task, like one flashcard.</p>
+              <p class="sf-guide__a">Because you said starting is the hard part.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <%# Principles ------------------------------------------------------------ %>
+    <section class="sf-principles" aria-labelledby="principles-title">
+      <h2 id="principles-title" class="sf-section-title">Built on what actually works</h2>
+      <ul class="sf-principles__list">
+        <li>
+          <h3>Methods with research behind them</h3>
+          <p>Active recall, spaced repetition, practice tests and short breaks. Chosen for you, not all at once.</p>
+        </li>
+        <li>
+          <h3>No learning-style myths</h3>
+          <p>You won't be sorted into "visual" or "auditory". The evidence doesn't support it, so StudyFit doesn't use it.</p>
+        </li>
+        <li>
+          <h3>Fits how your brain works</h3>
+          <p>Mention ADHD, dyslexia, anxiety or a job and the plan adapts around it. It's a coach, not a doctor, and it never diagnoses.</p>
+        </li>
+      </ul>
+    </section>
+
+    <%# Close ----------------------------------------------------------------- %>
+    <section class="sf-close" aria-labelledby="close-title">
+      <div class="sf-card sf-close__card">
+        <h2 id="close-title" class="sf-close__title">Ten questions. A plan that's actually&nbsp;yours.</h2>
+        <%= button_to chats_path, class: "sf-btn", form_class: "sf-inline-form" do %>Start my interview<%= arrow %><% end %>
+        <p class="sf-close__note">No account needed · about 5 minutes</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sf-footer">
+    <span class="sf-plate sf-plate--quiet">StudyFit</span>
+    <p>A study coach for university students.</p>
+  </footer>
+</div>

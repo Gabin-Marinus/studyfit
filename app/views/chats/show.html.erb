@@ -1,12 +1,124 @@
-<h1>Your StudyFit interview</h1>
-<% if alert %>
-  <p style="color: red;"><%= alert %></p>
-<% end %>
-<% @chat.messages.each do |message| %>
-  <p><strong><%= message.role == "user" ? "You" : "StudyFit" %>:</strong> <%= message.content %></p>
-<% end %>
+<% content_for :title, "Your interview · StudyFit" %>
+<%
+  messages = @chat.messages.order(:created_at).to_a
+  current = messages.reverse.find { |m| m.role == "assistant" }
+  # pair every answer with the question it answered, for the filed cards
+  filed = []
+  last_question = nil
+  messages.each do |m|
+    if m.role == "assistant"
+      last_question = m.content
+    else
+      filed << { answer: m.content, question: last_question }
+    end
+  end
+  goal = 10
+  length = current ? current.content.to_s.length : 0
+  size_class = length < 130 ? " is-short" : (length < 300 ? " is-medium" : "")
+%>
 
-<%= form_with model: [@chat, @message] do |f| %>
-  <%= f.text_area :content, placeholder: "Type your answer..." %>
-  <%= f.submit "Send" %>
-<% end %>
+<div class="sf-chat" data-controller="chat" data-chat-filed-value="<%= filed.size %>" data-chat-goal-value="<%= goal %>">
+  <header class="sf-chat__bar">
+    <%= link_to "StudyFit", root_path, class: "sf-plate", aria: { label: "StudyFit home" } %>
+    <p class="sf-chat__title">Your interview</p>
+  </header>
+
+  <div class="sf-desk">
+    <%# The current question, on its own card, with the answer field at its foot %>
+    <section class="sf-stage" aria-label="Current question">
+      <article class="sf-card sf-qcard<%= size_class %>" data-chat-target="question">
+        <header class="sf-qcard__head">
+          <span class="sf-typed">StudyFit</span>
+          <span class="sf-typed sf-qcard__next">Next card · <%= format("%02d", filed.size + 1) %></span>
+        </header>
+
+        <div class="sf-qcard__body" data-chat-target="body" aria-live="polite">
+          <% if current %>
+            <%= simple_format(plain_coach_text(current.content), {}, wrapper_tag: "p") %>
+          <% else %>
+            <p>Tell me a little about what you're studying for, and when.</p>
+          <% end %>
+        </div>
+
+        <p class="sf-qcard__writing" data-chat-target="writing" hidden>
+          <span class="sf-thinking" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>StudyFit is writing</span>
+        </p>
+
+        <% if alert %>
+          <div class="sf-alert" role="alert">
+            <p class="sf-alert__title">No reply this time</p>
+            <p><%= alert %></p>
+            <p class="sf-alert__hint">Your answer was saved. Send a short follow-up, like “go on”, to get the next question.</p>
+          </div>
+        <% end %>
+
+        <%= form_with model: [@chat, @message], class: "sf-qcard__answer", data: { chat_target: "form", action: "submit->chat#submit" } do |f| %>
+          <%= f.label :content, "Your answer", class: "sf-typed sf-qcard__label" %>
+          <%= f.text_area :content,
+                class: "sf-qcard__input",
+                rows: 1,
+                required: true,
+                placeholder: "Type your answer, or “skip”",
+                autocomplete: "off",
+                data: { chat_target: "input", action: "keydown->chat#keydown input->chat#resize" } %>
+          <div class="sf-qcard__foot">
+            <p class="sf-qcard__hint">Enter to send · Shift + Enter for a new line</p>
+            <button type="submit" class="sf-btn sf-qcard__send" data-chat-target="send">
+              <span data-chat-target="sendLabel">Send</span>
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4.5-4.5L15 10l-4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        <% end %>
+      </article>
+
+      <% if messages.size > 1 %>
+        <details class="sf-transcript">
+          <summary>Read the whole conversation</summary>
+          <ol class="sf-transcript__list">
+            <% messages.each do |message| %>
+              <li class="sf-transcript__item sf-transcript__item--<%= message.role == "user" ? "you" : "coach" %>">
+                <span class="sf-typed"><%= message.role == "user" ? "You" : "StudyFit" %></span>
+                <%= simple_format(message.role == "user" ? message.content : plain_coach_text(message.content), {}, wrapper_tag: "p") %>
+              </li>
+            <% end %>
+          </ol>
+        </details>
+      <% end %>
+    </section>
+
+    <%# The drawer: every answer filed as a card %>
+    <aside class="sf-files" data-chat-target="drawer" aria-label="Your filed answers">
+      <ol id="sf-files-list" class="sf-files__list" data-chat-target="files">
+        <% if filed.empty? %>
+          <li class="sf-files__empty" data-chat-target="empty">Your answers will be filed here, one card each.</li>
+        <% end %>
+        <% filed.each_with_index do |card, i| %>
+          <li class="sf-card sf-filecard" title="<%= card[:question].to_s.truncate(160) %>">
+            <span class="sf-typed">Card <%= format("%02d", i + 1) %></span>
+            <p class="sf-filecard__entry"><%= card[:answer] %></p>
+          </li>
+        <% end %>
+      </ol>
+
+      <button type="button" class="sf-files__front" data-chat-target="front" data-action="chat#toggleDrawer"
+              aria-controls="sf-files-list" aria-expanded="false">
+        <span class="sf-files__slots" aria-hidden="true" data-chat-target="slots">
+          <% goal.times do |n| %><i class="<%= "is-filled" if n < filed.size %>"></i><% end %>
+        </span>
+        <span class="sf-files__holder">
+          <strong data-chat-target="count"><%= format("%02d", filed.size) %></strong><span class="sf-files__of"><%= filed.size > goal ? "" : " / #{goal}" %></span>
+          <span class="sf-files__caption">answers filed</span>
+        </span>
+        <svg class="sf-files__chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m6 8 4 4 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </aside>
+  </div>
+
+  <template data-chat-target="cardTemplate">
+    <li class="sf-card sf-filecard">
+      <span class="sf-typed" data-slot="label"></span>
+      <p class="sf-filecard__entry" data-slot="text"></p>
+    </li>
+  </template>
+</div>

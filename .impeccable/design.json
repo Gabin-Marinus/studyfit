@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-28T00:00:00Z",
+  "title": "Design System: StudyFit",
+  "extensions": {
+    "colorMeta": {
+      "drawer-deep": {
+        "role": "neutral",
+        "displayName": "Drawer Deep",
+        "canonical": "oklch(21.3% 0.028 167)",
+        "tonalRamp": [
+          "#060d0a",
+          "#1c2722",
+          "#35443d",
+          "#50625a",
+          "#6f837a",
+          "#92a39b",
+          "#bac8c1",
+          "#e6f2ec"
+        ]
+      },
+      "drawer": {
+        "role": "neutral",
+        "displayName": "Reading-Room Green",
+        "canonical": "oklch(24.7% 0.032 168)",
+        "tonalRamp": [
+          "#050d0a",
+          "#1a2722",
+          "#33443d",
+          "#4e635a",
+          "#6c837a",
+          "#90a49b",
+          "#b8c9c1",
+          "#e5f2ec"
+        ]
+      },
+      "drawer-raised": {
+        "role": "neutral",
+        "displayName": "Drawer Front",
+        "canonical": "oklch(29.5% 0.039 168)",
+        "tonalRamp": [
+          "#040e0a",
+          "#182822",
+          "#30453d",
+          "#4a645a",
+          "#688579",
+          "#8ca59b",
+          "#b5cac1",
+          "#e3f3ec"
+        ]
+      },
+      "drawer-line": {
+        "role": "neutral",
+        "displayName": "Drawer Seam",
+        "canonical": "oklch(38.0% 0.044 166)",
+        "tonalRamp": [
+          "#030e09",
+          "#162821",
+          "#2e463c",
+          "#486558",
+          "#668678",
+          "#8aa699",
+          "#b3cac0",
+          "#e2f3eb"
+        ]
+      },
+      "on-drawer": {
+        "role": "neutral",
+        "displayName": "Lamplight",
+        "canonical": "oklch(95.6% 0.009 135)",
+        "tonalRamp": [
+          "#0a0c0a",
+          "#232522",
+          "#3e413d",
+          "#5c5f5a",
+          "#7b7e79",
+          "#9c9f9b",
+          "#c2c5c1",
+          "#edefec"
+        ]
+      },
+      "on-drawer-soft": {
+        "role": "neutral",
+        "displayName": "Faded Lamplight",
+        "canonical": "oklch(78.0% 0.027 162)",
+        "tonalRamp": [
+          "#070d09",
+          "#1d2721",
+          "#36433c",
+          "#526259",
+          "#708279",
+          "#93a39a",
+          "#bbc8c0",
+          "#e7f1ec"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card Stock",
+        "canonical": "oklch(97.3% 0.007 97)",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#242422",
+          "#40403d",
+          "#5e5e5a",
+          "#7e7d79",
+          "#9f9e9b",
+          "#c5c4c1",
+          "#efeeec"
+        ]
+      },
+      "card-shade": {
+        "role": "neutral",
+        "displayName": "Card Shade",
+        "canonical": "oklch(93.3% 0.011 95)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#252420",
+          "#41403b",
+          "#5f5e57",
+          "#7f7d76",
+          "#a09e98",
+          "#c5c4bf",
+          "#efeeea"
+        ]
+      },
+      "card-edge": {
+        "role": "neutral",
+        "displayName": "Card Edge",
+        "canonical": "oklch(88.4% 0.017 95)",
+        "tonalRamp": [
+          "#0c0b08",
+          "#25241e",
+          "#424038",
+          "#605e54",
+          "#807d73",
+          "#a19e95",
+          "#c6c4bc",
+          "#f0eee8"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Typewriter Ink",
+        "canonical": "oklch(25.6% 0.019 167)",
+        "tonalRamp": [
+          "#080c0a",
+          "#1f2623",
+          "#39423e",
+          "#55615c",
+          "#73817b",
+          "#96a29c",
+          "#bdc7c2",
+          "#e9f1ed"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "oklch(46.3% 0.022 166)",
+        "tonalRamp": [
+          "#070d0a",
+          "#1e2622",
+          "#38433e",
+          "#54615b",
+          "#72817a",
+          "#95a29c",
+          "#bcc7c2",
+          "#e8f1ed"
+        ]
+      },
+      "rule-red": {
+        "role": "secondary",
+        "displayName": "Header-Rule Red",
+        "canonical": "oklch(54.9% 0.173 29)",
+        "tonalRamp": [
+          "#250000",
+          "#4c0000",
+          "#77140f",
+          "#a42c23",
+          "#cd4d40",
+          "#e9796b",
+          "#ffa79a",
+          "#ffdace"
+        ]
+      },
+      "rule-blue": {
+        "role": "secondary",
+        "displayName": "Ruling Blue",
+        "canonical": "oklch(86.0% 0.029 250)",
+        "tonalRamp": [
+          "#070c11",
+          "#1d252d",
+          "#37414b",
+          "#525f6c",
+          "#717f8e",
+          "#94a0ad",
+          "#bbc5d0",
+          "#e7eff8"
+        ]
+      },
+      "brass": {
+        "role": "tertiary",
+        "displayName": "Label Brass",
+        "canonical": "oklch(73.4% 0.093 79)",
+        "tonalRamp": [
+          "#150800",
+          "#332000",
+          "#543a08",
+          "#77571d",
+          "#9a773c",
+          "#b89968",
+          "#dac098",
+          "#ffeccd"
+        ]
+      },
+      "brass-soft": {
+        "role": "tertiary",
+        "displayName": "Tarnished Brass",
+        "canonical": "oklch(57.4% 0.072 80)",
+        "tonalRamp": [
+          "#130900",
+          "#2f2107",
+          "#4f3c1b",
+          "#715931",
+          "#93794e",
+          "#b29b76",
+          "#d4c1a2",
+          "#fbecd5"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Catalogue Red",
+        "canonical": "oklch(54.4% 0.183 28)",
+        "tonalRamp": [
+          "#260000",
+          "#4e0000",
+          "#790d0c",
+          "#a72620",
+          "#d0483d",
+          "#ec7669",
+          "#ffa598",
+          "#ffd8cd"
+        ]
+      },
+      "red-deep": {
+        "role": "primary",
+        "displayName": "Pressed Catalogue Red",
+        "canonical": "oklch(47.9% 0.164 28)",
+        "tonalRamp": [
+          "#240000",
+          "#4a0202",
+          "#741914",
+          "#a13129",
+          "#c95145",
+          "#e57c6f",
+          "#ffa99d",
+          "#ffdbd0"
+        ]
+      },
+      "on-red": {
+        "role": "neutral",
+        "displayName": "Button White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "#262626",
+          "#3f3f3f",
+          "#5a5a5a",
+          "#777777",
+          "#959595",
+          "#b4b4b4",
+          "#d6d6d6",
+          "#f7f7f7"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles on the ground and the closing card title."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Guide card headings and the plan card title."
+      },
+      "question": {
+        "displayName": "Question",
+        "purpose": "The current short coach question in chat."
+      },
+      "plate": {
+        "displayName": "Plate",
+        "purpose": "Wordmark plate and guide-card tabs, uppercase."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text."
+      },
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Button labels, nav links, alert titles."
+      },
+      "label": {
+        "displayName": "Typed Label",
+        "purpose": "Uppercase typed card labels and holders."
+      },
+      "entry": {
+        "displayName": "Typed Entry",
+        "purpose": "Typed entries on cards and example questions."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 1px 1px rgba(5,16,12,0.35), 0 14px 28px -14px rgba(3,12,8,0.65)",
+        "purpose": "Every index card and guide card."
+      },
+      {
+        "name": "plan-card",
+        "value": "0 1px 1px rgba(5,16,12,0.4), 0 -10px 24px -14px rgba(3,12,8,0.55), 0 30px 50px -24px rgba(3,12,8,0.8)",
+        "purpose": "Front card of a stack."
+      },
+      {
+        "name": "composer",
+        "value": "0 1px 1px rgba(5,16,12,0.4), 0 -6px 30px -10px rgba(3,12,8,0.7)",
+        "purpose": "Sticky composer card, cast upward."
+      },
+      {
+        "name": "drawer-front",
+        "value": "inset 0 1px 0 rgba(238,242,236,0.08), 0 18px 30px -18px rgba(0,0,0,0.8)",
+        "purpose": "Raised drawer front."
+      },
+      {
+        "name": "red-action",
+        "value": "0 1px 0 rgba(255,255,255,0.18) inset, 0 10px 22px -12px rgba(196,51,43,0.9)",
+        "purpose": "Primary button only."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid #c9a263; outline-offset: 3px",
+        "purpose": "Brass focus ring on every focusable element; composer uses a 2px brass box-shadow ring."
+      },
+      {
+        "name": "citation-lift",
+        "value": "0 0 0 1.5px #c23b30, 0 1px 1px rgba(5,16,12,0.35), 0 14px 28px -14px rgba(3,12,8,0.65)",
+        "purpose": "Source card lifted by an origin ticket."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "State changes: buttons, plates, hero copy rise."
+      },
+      {
+        "name": "ease-damped",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Card movement: filing in, citation lift, chat drop."
+      },
+      {
+        "name": "duration-fast",
+        "value": "160ms",
+        "purpose": "Hover colour and press."
+      },
+      {
+        "name": "duration-card",
+        "value": "420ms-700ms",
+        "purpose": "Card translate and entrance."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "1ms",
+        "purpose": "All animations and transitions collapse under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "560px"
+      },
+      {
+        "name": "stack",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single red action per screen (Start my interview, Send).",
+      "html": "<div class=\"ds-ground\"><button class=\"ds-btn\">Start my interview<svg viewBox=\"0 0 20 20\" fill=\"none\" aria-hidden=\"true\"><path d=\"M4 10h11m-4.5-4.5L15 10l-4.5 4.5\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-ground{background:var(--sf-drawer);padding:24px;} .ds-btn{display:inline-flex;align-items:center;gap:0.7rem;padding:1rem 1.6rem;border:0;border-radius:6px;background:var(--sf-red);color:#fff;font-family:var(--sf-font-body);font-weight:700;font-size:1.0625rem;line-height:1.2;cursor:pointer;box-shadow:0 1px 0 rgba(255,255,255,0.18) inset,0 10px 22px -12px rgba(196,51,43,0.9);transition:background-color 160ms ease,transform 160ms var(--sf-ease);} .ds-btn svg{width:1.1em;height:1.1em;transition:transform 220ms var(--sf-ease);} .ds-btn:hover{background:var(--sf-red-deep);} .ds-btn:hover svg{transform:translateX(3px);} .ds-btn:active{transform:scale(0.97);} .ds-btn:focus-visible{outline:2px solid var(--sf-brass);outline-offset:3px;}"
+    },
+    {
+      "name": "Wordmark Plate",
+      "kind": "nav",
+      "refersTo": "plate",
+      "description": "Brass label-holder wordmark with a rivet; fills with brass on hover.",
+      "html": "<div class=\"ds-ground\"><a class=\"ds-plate\" href=\"#\">StudyFit</a> <span class=\"ds-plate ds-plate--quiet\">StudyFit</span></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-ground{background:var(--sf-drawer);padding:24px;display:flex;gap:16px;} .ds-plate{display:inline-flex;align-items:center;gap:0.6rem;padding:0.45rem 0.85rem 0.45rem 0.6rem;border:1.5px solid var(--sf-brass);border-radius:3px;color:var(--sf-on-drawer);font-family:var(--sf-font-display);font-weight:700;font-stretch:115%;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;line-height:1;transition:background-color 180ms var(--sf-ease),color 180ms var(--sf-ease);} .ds-plate::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sf-brass);} a.ds-plate:hover{background:var(--sf-brass);color:var(--sf-drawer-deep);} a.ds-plate:hover::before{background:var(--sf-drawer-deep);} a.ds-plate:focus-visible{outline:2px solid var(--sf-brass);outline-offset:3px;} .ds-plate--quiet{border-color:var(--sf-drawer-line);color:var(--sf-on-drawer-soft);} .ds-plate--quiet::before{background:var(--sf-drawer-line);}"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Quiet bold text link on the drawer ground.",
+      "html": "<div class=\"ds-ground\"><a class=\"ds-nav-link\" href=\"#\">How it works</a></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-ground{background:var(--sf-drawer);padding:24px;} .ds-nav-link{color:var(--sf-on-drawer-soft);font-family:var(--sf-font-body);font-weight:700;font-size:0.9375rem;text-decoration:none;text-underline-offset:0.22em;transition:color 160ms ease;} .ds-nav-link:hover{color:var(--sf-on-drawer);text-decoration:underline;} .ds-nav-link:focus-visible{outline:2px solid var(--sf-brass);outline-offset:3px;border-radius:3px;}"
+    },
+    {
+      "name": "Index Card",
+      "kind": "card",
+      "refersTo": "index-card",
+      "description": "Ivory ruled card stock: typed label above a red header rule, blue ruling below.",
+      "html": "<div class=\"ds-ground\"><article class=\"ds-card ds-file\"><span class=\"ds-typed\">Card 03 · Sharpest</span><p class=\"ds-entry\">Mornings, before 11</p></article></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-card{--head:3.25rem;--line:2rem;background-color:var(--sf-card);background-image:linear-gradient(var(--sf-rule-red),var(--sf-rule-red)),repeating-linear-gradient(to bottom,transparent 0 calc(var(--line) - 1px),var(--sf-rule-blue) calc(var(--line) - 1px) var(--line));background-size:100% 1.5px,100% 100%;background-position:0 var(--head),0 calc(var(--head) + 1.5px);background-repeat:no-repeat;color:var(--sf-ink);border-radius:6px;box-shadow:var(--sf-shadow-card);} .ds-typed{font-family:var(--sf-font-typed);font-weight:700;font-size:0.8125rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--sf-ink-soft);} .ds-ground{background:var(--sf-drawer);padding:24px;} .ds-file{max-width:28rem;min-height:8rem;padding:0.65rem 1.25rem;} .ds-file .ds-typed{display:flex;align-items:center;height:2.6rem;} .ds-entry{margin:0;font-family:var(--sf-font-typed);font-size:1.0625rem;line-height:2rem;}"
+    },
+    {
+      "name": "Answer Card",
+      "kind": "card",
+      "refersTo": "answer-card",
+      "description": "A student's chat answer, filed as a card tucked to the right.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-card ds-answer\"><span class=\"ds-typed\">You</span><p class=\"ds-text\">About 25 minutes, then I drift.</p></div></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-card{--head:3.25rem;--line:2rem;background-color:var(--sf-card);background-image:linear-gradient(var(--sf-rule-red),var(--sf-rule-red)),repeating-linear-gradient(to bottom,transparent 0 calc(var(--line) - 1px),var(--sf-rule-blue) calc(var(--line) - 1px) var(--line));background-size:100% 1.5px,100% 100%;background-position:0 var(--head),0 calc(var(--head) + 1.5px);background-repeat:no-repeat;color:var(--sf-ink);border-radius:6px;box-shadow:var(--sf-shadow-card);} .ds-typed{font-family:var(--sf-font-typed);font-weight:700;font-size:0.8125rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--sf-ink-soft);} .ds-ground{background:var(--sf-drawer);padding:24px;display:flex;justify-content:flex-end;} .ds-answer{--head:2.4rem;--line:1.85rem;width:min(100%,32rem);padding:0.55rem 1.15rem 0.6rem;} .ds-answer .ds-typed{display:block;height:1.85rem;font-size:0.75rem;} .ds-text{margin:0;padding-top:1.5px;font-family:var(--sf-font-body);font-size:1.0625rem;line-height:1.85rem;}"
+    },
+    {
+      "name": "Composer",
+      "kind": "input",
+      "refersTo": "composer",
+      "description": "The chat input as an index card with its own ruling and a red caret; brass ring on focus.",
+      "html": "<div class=\"ds-ground\"><form class=\"ds-card ds-composer\"><label class=\"ds-typed ds-label\" for=\"ds-in\">Your answer</label><textarea id=\"ds-in\" class=\"ds-input\" rows=\"2\" placeholder=\"Type your answer, or “skip”\"></textarea></form></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-card{--head:3.25rem;--line:2rem;background-color:var(--sf-card);background-image:linear-gradient(var(--sf-rule-red),var(--sf-rule-red)),repeating-linear-gradient(to bottom,transparent 0 calc(var(--line) - 1px),var(--sf-rule-blue) calc(var(--line) - 1px) var(--line));background-size:100% 1.5px,100% 100%;background-position:0 var(--head),0 calc(var(--head) + 1.5px);background-repeat:no-repeat;color:var(--sf-ink);border-radius:6px;box-shadow:var(--sf-shadow-card);} .ds-typed{font-family:var(--sf-font-typed);font-weight:700;font-size:0.8125rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--sf-ink-soft);} .ds-ground{background:var(--sf-drawer);padding:24px;} .ds-composer{--head:2.5rem;max-width:46rem;padding:0.6rem 1.15rem 0.85rem;background-image:linear-gradient(var(--sf-rule-red),var(--sf-rule-red));background-size:100% 1.5px;background-position:0 2.5rem;background-repeat:no-repeat;box-shadow:0 1px 1px rgba(5,16,12,0.4),0 -6px 30px -10px rgba(3,12,8,0.7);} .ds-label{display:block;height:1.9rem;} .ds-input{display:block;width:100%;min-height:4rem;margin:1.5px 0 0;padding:0;border:0;background:repeating-linear-gradient(to bottom,transparent 0 calc(2rem - 1px),var(--sf-rule-blue) calc(2rem - 1px) 2rem);background-attachment:local;color:var(--sf-ink);font-family:var(--sf-font-body);font-size:1.0625rem;line-height:2rem;resize:none;caret-color:var(--sf-rule-red);} .ds-input::placeholder{color:#6b7972;} .ds-input:focus{outline:none;} .ds-composer:focus-within{box-shadow:0 0 0 2px var(--sf-brass),0 -6px 30px -10px rgba(3,12,8,0.7);}"
+    },
+    {
+      "name": "Origin Ticket",
+      "kind": "chip",
+      "refersTo": "origin-ticket",
+      "description": "Red stub at the end of a plan line naming the answer card it came from.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-card ds-plan\"><span>Two 25-minute sessions, 9:00 to 10:00</span><span class=\"ds-tickets\"><span class=\"ds-ticket\" tabindex=\"0\">03</span><span class=\"ds-ticket\" tabindex=\"0\">04</span></span></div></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-card{--head:3.25rem;--line:2rem;background-color:var(--sf-card);background-image:linear-gradient(var(--sf-rule-red),var(--sf-rule-red)),repeating-linear-gradient(to bottom,transparent 0 calc(var(--line) - 1px),var(--sf-rule-blue) calc(var(--line) - 1px) var(--line));background-size:100% 1.5px,100% 100%;background-position:0 var(--head),0 calc(var(--head) + 1.5px);background-repeat:no-repeat;color:var(--sf-ink);border-radius:6px;box-shadow:var(--sf-shadow-card);} .ds-typed{font-family:var(--sf-font-typed);font-weight:700;font-size:0.8125rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--sf-ink-soft);} .ds-ground{background:var(--sf-drawer);padding:24px;} .ds-plan{--head:0.6rem;--line:2.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;max-width:32rem;padding:1rem 1.5rem;font-family:var(--sf-font-body);font-size:1.0625rem;} .ds-tickets{display:inline-flex;gap:0.3rem;} .ds-ticket{display:inline-grid;place-items:center;min-width:2.35rem;height:1.6rem;padding:0 0.4rem;border:1.5px solid var(--sf-rule-red);border-radius:3px;color:var(--sf-rule-red);font-family:var(--sf-font-typed);font-weight:700;font-size:0.8125rem;transition:background-color 180ms ease,color 180ms ease;} .ds-ticket:hover,.ds-ticket:focus-visible{background:var(--sf-rule-red);color:var(--sf-card);outline:2px solid var(--sf-brass);outline-offset:3px;} .ds-ticket:hover{outline:none;}"
+    },
+    {
+      "name": "Drawer Holder",
+      "kind": "custom",
+      "refersTo": "drawer-holder",
+      "description": "Brass label holder on the raised drawer front, labelling example content honestly.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-front\"><span class=\"ds-holder\">Example plan</span></div></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-ground{background:var(--sf-drawer);padding:24px;} .ds-front{display:flex;justify-content:center;padding:1rem 0 1.1rem;background:var(--sf-drawer-raised);border-radius:4px 4px 10px 10px;box-shadow:inset 0 1px 0 rgba(238,242,236,0.08),0 18px 30px -18px rgba(0,0,0,0.8);} .ds-holder{padding:0.35rem 1rem;border:1.5px solid var(--sf-brass);border-radius:2px;background:var(--sf-drawer-deep);color:var(--sf-brass);font-family:var(--sf-font-typed);font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;}"
+    },
+    {
+      "name": "Guide Card Tab",
+      "kind": "card",
+      "refersTo": "guide-tab",
+      "description": "Card with a rising tab that steps a third further along each card.",
+      "html": "<div class=\"ds-ground\"><div class=\"ds-guide\"><span class=\"ds-tab\">Ask</span><h3 class=\"ds-h\">Ten questions, one at a time</h3><p class=\"ds-p\">Skip any you would rather not answer.</p></div></div>",
+      "css": ":host{--sf-drawer-deep:#0b1d16;--sf-drawer:#10261e;--sf-drawer-raised:#173329;--sf-drawer-line:#2a4a3d;--sf-on-drawer:#eef2ec;--sf-on-drawer-soft:#a9bdb2;--sf-card:#f7f6f1;--sf-ink:#1a2621;--sf-ink-soft:#4e5d56;--sf-rule-red:#c23b30;--sf-rule-blue:#c3d3e4;--sf-brass:#c9a263;--sf-brass-soft:#8f7446;--sf-red:#c4332b;--sf-red-deep:#a62821;--sf-font-display:'Archivo','Helvetica Neue',Arial,sans-serif;--sf-font-body:'Atkinson Hyperlegible','Segoe UI',system-ui,sans-serif;--sf-font-typed:'Courier Prime','Courier New',Courier,monospace;--sf-ease:cubic-bezier(0.22,1,0.36,1);--sf-shadow-card:0 1px 1px rgba(5,16,12,0.35),0 14px 28px -14px rgba(3,12,8,0.65);} .ds-ground{background:var(--sf-drawer);padding:56px 24px 24px;} .ds-guide{position:relative;background:var(--sf-card);color:var(--sf-ink);border-radius:0 6px 6px 6px;box-shadow:var(--sf-shadow-card);padding:2rem;} .ds-tab{position:absolute;bottom:100%;left:0;width:11rem;padding:0.55rem 1rem 0.35rem;background:var(--sf-card);border-radius:8px 8px 0 0;font-family:var(--sf-font-display);font-weight:800;font-stretch:115%;font-size:0.875rem;letter-spacing:0.14em;text-transform:uppercase;text-align:center;} .ds-h{margin:0 0 0.85rem;font-family:var(--sf-font-display);font-weight:800;font-stretch:104%;font-size:1.75rem;line-height:1.1;letter-spacing:-0.02em;} .ds-p{margin:0;font-family:var(--sf-font-body);font-size:1.0625rem;line-height:1.6;color:var(--sf-ink-soft);max-width:46ch;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Library Card Catalogue",
+    "overview": "StudyFit is a reading room after hours. The ground is the deep green of a catalogue drawer's interior; everything the student says is filed on it as an ivory index card with a red header rule and pale blue ruling, typed in a typewriter face. The plan is a card too, and each of its lines carries a small red origin ticket naming the answer card it came from. The system exists to make one idea visible: your plan is filed from your own answers.\n\nThe register is calm, warm and tactile without costume. Depth comes from real paper behaviour: cards sit on the drawer with a soft cast shadow, rear cards in a stack read slightly narrower and darker, and motion is damped, like a card sliding into a drawer rather than a UI element animating. Brass is hardware: it labels and frames (the wordmark plate, the drawer holder, the focus ring, text selection), it never shouts. Red is reserved for the one action on a screen and for the card's own red ink.\n\nDensity is generous and reading-first. Body copy is Atkinson Hyperlegible at 17px with 1.6 leading and measures held between 34ch and 46ch, because many readers have dyslexia, ADHD or anxiety. The direction explicitly refuses the split SaaS hero with a floating app mockup and three equal step cards.",
+    "keyCharacteristics": [
+      "Dark reading-room green ground; light ivory card stock as the only light surface.",
+      "Index cards are ruled: a 1.5px red header rule, then pale blue lines on a fixed pitch that text sits on.",
+      "Three typefaces with strict jobs: Archivo engraves, Atkinson reads, Courier Prime types.",
+      "Brass for hardware and focus; red for the single primary action and card ink.",
+      "Damped, physical motion; everything collapses to near-instant under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Two Materials Rule",
+        "body": "Every surface is either drawer (green ground) or card (ivory stock). There is no third surface colour, no grey panel, no gradient fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Red Button Rule",
+        "body": "Catalogue Red fills exactly one action per screen. Everything else that needs emphasis uses brass hardware or card ink, never a second red fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Brass Is Hardware Rule",
+        "body": "Brass outlines, labels and rings; it does not fill large areas or carry body text. A plate may fill with brass only on hover.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Jobs Rule",
+        "body": "Archivo engraves headings and labels-as-hardware, Atkinson carries every sentence meant to be read, Courier Prime only types onto cards (labels and entries). Never set paragraphs in Courier Prime or headings in Atkinson.",
+        "section": "typography"
+      },
+      {
+        "name": "The Typed Label Belongs To A Card Rule",
+        "body": "Uppercase Courier labels name a card or its field. They sit in a card's header band above the red rule (or as the sender line over a coach message), never as a decorative tag above a page section headline.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Rests Rule",
+        "body": "Shadows are soft, negative-spread and fall downward. No hard offset shadows, no glows on the ground except the red button's own.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lift Means Citation Rule",
+        "body": "A card moves up out of its stack only to answer \"where did this come from?\": hovering or focusing an origin ticket lifts its source card 1.1rem, outlines it in Header-Rule Red and dims the rest.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put every student answer, plan and input on ivory Card Stock with the red header rule and blue ruling; set text line-height equal to the ruling pitch.",
+      "**Do** keep exactly one Catalogue Red filled action per screen.",
+      "**Do** use brass for hardware only: the wordmark plate, label holders, focus rings (2px, 3px offset), selection and progress.",
+      "**Do** set Courier Prime only for typed card labels and entries, Archivo for engraved headings and plates, Atkinson for everything read.",
+      "**Do** cite answers with origin tickets wherever a plan choice is shown, and lift the cited card on hover and focus.",
+      "**Do** keep body copy at 1.0625rem or larger with measures between 34ch and 46ch.",
+      "**Do** use the damped easing for card movement and honour reduced motion."
+    ],
+    "donts": [
+      "**Don't** build a split SaaS hero with a floating app mockup, or three equal step cards.",
+      "**Don't** introduce a third surface colour, grey panels or gradient fills beyond the card ruling and the composer's fade into the ground.",
+      "**Don't** add a second red filled button or use red for decoration on the ground.",
+      "**Don't** use hard offset shadows or glows; paper shadows are soft and fall downward.",
+      "**Don't** put typed Courier labels above page section headlines as decorative tags.",
+      "**Don't** set paragraphs in Courier Prime or body text in Archivo.",
+      "**Don't** show testimonials, user counts or outcome numbers; proof is the mechanism, with example data labelled as such."
+    ]
+  }
+}
